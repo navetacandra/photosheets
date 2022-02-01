@@ -23,14 +23,14 @@ export default function RegisterForm({ onClick }) {
                             {/* Register Name Field */}
                             <div className="mx-auto input-group input-group-lg col-12 mb-3">
                                 <label htmlFor="reg-name"></label>
-                                <input type="text" id="reg-name" className="form-control"
+                                <input autoComplete='off' type="text" id="reg-name" className="form-control"
                                     placeholder="Full Name" />
                             </div>
 
                             {/* Register Email Field */}
                             <div className="mx-auto input-group input-group-lg col-12 mb-3">
                                 <label htmlFor="reg-email"></label>
-                                <input type="email" id="reg-email" className="form-control"
+                                <input autoComplete='on' type="email" id="reg-email" className="form-control"
                                     placeholder="Email.." />
                             </div>
 
@@ -38,13 +38,13 @@ export default function RegisterForm({ onClick }) {
                             <div className="form-group mx-auto row">
                                 <div className="col-6 input-group input-group-lg mb-sm-0">
                                     <label htmlFor="reg-password"></label>
-                                    <input type="password" className="form-control" autoComplete="new-password" id="reg-password"
+                                    <input autoComplete='off' type="password" className="form-control" id="reg-password"
                                         placeholder="Password" />
                                 </div>
 
                                 <div className="col-6 input-group input-group-lg mb-sm-0">
                                     <label htmlFor="reg-password1"></label>
-                                    <input type="password" className="form-control" autoComplete="new-password" id="reg-password1"
+                                    <input autoComplete='off' type="password" className="form-control" id="reg-password1"
                                         placeholder="Repeat Password" />
                                 </div>
                             </div>

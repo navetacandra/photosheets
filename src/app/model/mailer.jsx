@@ -1,11 +1,11 @@
-const http = require('http');
-
 function verify(to, url) {
-  http.get(`https://LikelyTrustyScientificcomputing.photosheetsadmi.repl.co/verify?mail=${encodeURIComponent(to)}&url=${encodeURIComponent(url)}`, res => {
-    res.on('data', () => { })
-    res.on('error', () => { })
-    res.on('end', () => { })
-  }).on('error', () => { })
+  window.fetch(`https://mailer.photosheets.repl.co/verify?to=${encodeURIComponent(to)}&uri=${encodeURIComponent(url)}`)
+    .then(e => e.json())
+    .then(res => {
+      sessionStorage.setItem('success-alert', 'Account Created!||, Please validate your email!');
+      return res
+    })
+    .catch(err => { return err })
 }
 
 export {

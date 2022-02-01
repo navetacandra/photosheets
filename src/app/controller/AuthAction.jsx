@@ -4,11 +4,10 @@ import { redirect } from '../config/app';
 import firebase from '../config/firebase.config';
 
 function VerifyEmail(path) {
-    let v = path.path
-    firebase.database().ref('users/' + v.uid).once('value', function (data) {
+    firebase.database().ref('users/' + path.uid).once('value', function (data) {
         let val = data.val();
         if (val) {
-            if (v.token === val.token || !val.token) {
+            if (path.token === val.token || !val.token) {
                 firebase.database().ref('users/' + val.uid).update({
                     isVerify: true,
                     token: {}
@@ -16,21 +15,18 @@ function VerifyEmail(path) {
             }
         }
     })
-    return (
-        <>
-        </>
-    )
 }
 
 export default function AuthAction() {
     let path = useParams()
     let mode = path.mode;
-
+    React.useEffect(() => {
+        if (mode === 'verify') {
+            VerifyEmail(path)
+        }
+    }, [])
     return (
-        <>
-            {
-                mode === 'verify' ? <VerifyEmail path={path} /> : null
-            }
-        </>
+        <div>
+        </div>
     )
 }

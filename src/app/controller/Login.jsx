@@ -15,6 +15,8 @@ const Login = () => {
             document.querySelector('#err-log').innerHTML = ""
             if (pass !== '') {
                 document.querySelector('#err-log').innerHTML = ""
+                document.querySelector('#log-button').setAttribute('disabled', '')
+                document.querySelector('#log-button').innerHTML = '<span class="spinner-border"></span>'
                 LoginUser(email, pass)
 
             } else {

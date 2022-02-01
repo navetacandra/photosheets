@@ -17,7 +17,7 @@ export default function EditAccount({ Delete, setPass }) {
                     <div className="modal-body">
                         <div className="form-group">
                             <label htmlFor="name">Password:</label>
-                            <input type="password" name="del-pass" id="del-pass"
+                            <input autoComplete='off' type="password" name="del-pass" id="del-pass"
                                 className="form-control" onChange={e => setPass(e.target.value)} placeholder="Password.."/>
                         </div>
                         <div className="form-group">

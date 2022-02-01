@@ -11,10 +11,9 @@ function RegisterUser(email, password, name) {
     firebase.auth()
         .createUserWithEmailAndPassword(email, password)
         .then(res => {
-            sessionStorage.setItem('success-alert', 'Account Created!||, Please validate your email!')
             let token = uuidv4()
             verify(email, `${uri}/auth/verify/${res.user.uid}/${token}`)
-
+            firebase.auth().signInWithEmailAndPassword(email, password)
             firebase.database().ref('users/' + res.user.uid).set({
                 uid: res.user.uid,
                 name: name,
@@ -52,10 +51,13 @@ function LoginUser(email, password) {
         let d = Object.values(res.val()).filter(f => f.email === email)[0]
         if (!d.isVerify) {
             document.getElementById('err-log').innerHTML = "User is not activated!"
+            document.querySelector('#log-button').innerHTML = 'LOGIN'
+            document.querySelector('#log-button').removeAttribute('disabled')
         } else {
             firebase.auth()
                 .signInWithEmailAndPassword(email, password)
                 .then(res => {
+                    document.querySelector('#log-button').innerHTML = 'LOGIN'
                     firebase.database().ref('users/' + res.user.uid)
                         .on("value", response => {
                             let data = response.val()
@@ -68,9 +70,13 @@ function LoginUser(email, password) {
                             }
                             localStorage.setItem('user', JSON.stringify(user))
                             redirect('/')
+                            document.querySelector('#log-button').removeAttribute('disabled')
                         })
                 })
                 .catch(err => {
+                    document.querySelector('#log-button').innerHTML = 'LOGIN'
+                    document.querySelector('#log-button').removeAttribute('disabled')
+                    document.querySelector('#log-button').classList.remove('spinner-border')
                     if (err.code === 'auth/user-not-found') {
                         document.getElementById('err-log').innerHTML = "User is not found!"
                     }

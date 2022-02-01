@@ -25,14 +25,14 @@ export default function EditAccount({ Edit, fileChange, name, nameInput }) {
                             <span id="image_size">200 X 200</span>
                         </div>
                         <div className="form-group">
-                            <input type="file" id="fileInput" onChange={(e) => fileChange(e.target.files)} />
+                            <input autoComplete='off' type="file" accept='image/*' id="fileInput" onChange={(e) => fileChange(e.target.files)} />
                         </div>
                         <div className="form-group">
                             <span className="small text-danger" id="err-file"></span>
                         </div>
                         <div className="form-group">
                             <label htmlFor="name">Profile Name:</label>
-                            <input type="text" name="name" id="name"
+                            <input autoComplete='off' type="text" name="name" id="name"
                                 className="form-control" placeholder="Name.." 
                                 defaultValue={name}/>
                         </div>

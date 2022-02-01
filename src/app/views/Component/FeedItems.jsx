@@ -1,19 +1,23 @@
 import React from 'react'
 import FeedAvatar from './FeedAvatar'
 import FeedDate from './FeedDate'
+import FeedDot from './FeedDot'
 
 
 function FeedItems(props) {
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Desember']
+    let month = months[props.month - 1]
     return (
         <div className="card shadow mb-3">
             <div className="card-body">
+                <FeedDot />
                 <FeedAvatar
                     src={props.profilePict}
                     name={props.name}
                 />
                 <FeedDate
                     year={props.year}
-                    month={props.month}
+                    month={month}
                     date={props.date}
                 />
                 {props.image ? (
@@ -27,19 +31,19 @@ function FeedItems(props) {
                             </div>
                         </div>
                     ) : (
-                            <div className="col-lg d-block">
-                                <div className="col-lg-12 my-1">
-                                    <figure class="figure">
-                                        <img src={props.image} class="figure-img img-fluid default-post" alt="" />
-                                    </figure>
-                                </div>
+                        <div className="col-lg d-block">
+                            <div className="col-lg-12 my-1">
+                                <figure class="figure">
+                                    <img src={props.image} class="figure-img img-fluid default-post" alt="" />
+                                </figure>
                             </div>
-                        )
-                ) : (
-                        <div className="col d-block">
-                            <span className="text-dark">{props.message}</span>
                         </div>
-                    )}
+                    )
+                ) : (
+                    <div className="col d-block">
+                        <span className="text-dark">{props.message}</span>
+                    </div>
+                )}
             </div>
         </div>
     )

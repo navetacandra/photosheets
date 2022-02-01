@@ -1,10 +1,10 @@
 import React from "react";
-import FirebaseIcon from '../../../firebase-icon.svg'
-import ReactIcon from '../../../reactjs-icon.svg'
-import InstagramIcon from '../../../instagram-icon.svg'
-import GmailIcon from '../../../gmail-icon.svg'
-import GithubIcon from '../../../github-icon.svg'
-import WebIcon from '../../../web-icon.svg'
+import FirebaseIcon from '../../../assets/firebase-icon.svg'
+import ReactIcon from '../../../assets/reactjs-icon.svg'
+import InstagramIcon from '../../../assets/instagram-icon.svg'
+import GmailIcon from '../../../assets/gmail-icon.svg'
+import GithubIcon from '../../../assets/github-icon.svg'
+import WebIcon from '../../../assets/web-icon.svg'
 
 export default function Footer(props) {
     let mt = {

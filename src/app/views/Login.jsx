@@ -3,15 +3,17 @@ import { sendResetPass } from '../model/Model'
 
 export default function LoginForms({ handleSubmit }) {
     let a = sessionStorage.getItem('success-alert') ? sessionStorage.getItem('success-alert').split('||') : null;
+    let b = sessionStorage.getItem('error-alert') ? sessionStorage.getItem('error-alert').split('||') : null;
     function dismiss() {
         sessionStorage.removeItem('success-alert')
+        sessionStorage.removeItem('error-alert')
     }
     return (
         <div className="bg-light">
             <nav className="navbar navbar-dark bg-primary">
                 <div className="container mx-2">
                     <a className="navbar-brand" href='/'>
-                        <span className='font-weight-bold'>Photo Sheets</span>
+                        <span className='font-weight-bold'>PhotoSheets</span>
                     </a>
                 </div>
             </nav>
@@ -31,16 +33,29 @@ export default function LoginForms({ handleSubmit }) {
                                                     </button>
                                                 </div>
                                             ) : (
-                                                null
+                                                <>
+                                                    {
+                                                        sessionStorage.getItem('error-alert') ? (
+                                                            <div className="alert alert-dismissible fade show alert-danger" style={{ display: 'block' }} role="alert">
+                                                                <span className='font-weight-bold'>{b[0]}</span>{b[1]}
+                                                                <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={dismiss}>
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                        ) : (
+                                                            null
+                                                        )
+                                                    }
+                                                </>
                                             )
                                         }
                                         <div className="input-group input-group-lg mb-3">
                                             <label htmlFor="log-email"></label>
-                                            <input type="email" id='log-email' className="form-control" placeholder="Email.." />
+                                            <input autoComplete='on' type="email" id='log-email' className="form-control" placeholder="Email.." />
                                             <br />
                                         </div>
                                         <div className="input-group input-group-lg mb-3 mt-3">
-                                            <input type="password" id='log-password' className="form-control" placeholder="Password.." />
+                                            <input autoComplete='off' type="password" id='log-password' className="form-control" placeholder="Password.." />
                                         </div>
                                         <div className="input-group mb-3 pl-3 row">
                                             <span id="err-log" className="text-danger mx-auto"></span>
@@ -63,7 +78,7 @@ export default function LoginForms({ handleSubmit }) {
                                                         <form className='row' id='fr-passForm'>
                                                             <div className="mx-auto input-group input-group-lg col-12 mb-3">
                                                                 <label htmlFor="reg-email"></label>
-                                                                <input type="email" id="frg-email" className="form-control"
+                                                                <input autoComplete='on' type="email" id="frg-email" className="form-control"
                                                                     placeholder="Email.." />
                                                             </div>
                                                             <div className="input-group mb-3 row pl-3">

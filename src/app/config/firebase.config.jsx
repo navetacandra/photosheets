@@ -3,18 +3,20 @@ import 'firebase/compat/auth'
 import 'firebase/compat/database'
 import 'firebase/compat/firestore'
 import 'firebase/compat/storage'
+import config from '../../firebase.config.json'
+console.log(config)
 
 const firebaseConfig = {
-    apiKey: "FIREBASE_API_KEY",
-    authDomain: "FIREBASE_DOMAIN",
-    databaseURL: "FIREBASE_DATABASE",
-    projectId: "FIREBASE_PROJECT_ID",
-    storageBucket: "FIREBASE_STORAGE",
-    messagingSenderId: "FIREBASE_MESSAGE_SENDER_ID",
-    appId: "FIREBASE_APP_ID",
-    measurementId: "FIREBASE_MEASUREMENt_ID"
-};
+    apiKey: config.apiKey,
+    authDomain: config.authDomain,
+    databaseURL: config.databaseURL,
+    projectId: config.projectId,
+    storageBucket: config.storageBucket,
+    messagingSenderId: config.messagingSenderId,
+    appId: config.appId,
+    measurementId: config.measurementId
+  };
 
-let app = firebase.initializeApp(firebaseConfig);
-export { app }
+firebase.initializeApp(firebaseConfig);
+
 export default firebase

@@ -12,7 +12,7 @@
 
 @font-face {
     font-family: disko;
-    src: url(Disko.ttf);
+    src: url(./assets/Disko.ttf);
 }
 
 .blog-title {
@@ -145,4 +145,13 @@
     opacity: 0.3;
     font-size: 13px;
     margin-bottom: 0
+}
+
+.dot3-feed {
+    position: absolute;
+    right: 0;
+}
+.feed-info {
+    position: absolute;
+    right: 2em;
 }

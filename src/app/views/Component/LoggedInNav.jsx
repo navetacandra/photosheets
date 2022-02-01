@@ -8,13 +8,13 @@ function LoggedInNav() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="container">
                 <a className="navbar-brand" href="/">
-                    <span className="font-weight-bold">PhotoSheet</span>
+                    <span className="font-weight-bold">PhotoSheets</span>
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ml-auto p-2">
+                    <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <Link className="nav-link" to="/">
                                 <span className="font-weight-bold">Home</span>
