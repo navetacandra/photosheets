@@ -28,10 +28,6 @@ const cacheData = [
     '/main.95bedfe2586d3b10e464.hot-update.js',
     /*-----------------------------------------------------------------------------------------------------*/
     // React Production Build Javascript Assets
-    '/static/js/',
-    // React Production Build Javascript Map Assets
-    '/static/js/',
-    // React Production Build Style Assets
     '/static/css/',
     /*-----------------------------------------------------------------------------------------------------*/
     // Image Assets
