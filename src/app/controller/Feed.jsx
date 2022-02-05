@@ -17,7 +17,7 @@ function Feed() {
                 setFeeds(desc)
             }
         })
-    })
+    }, [])
     return (
         <div className="container">
             <div className="row justify-content-center">
@@ -34,6 +34,7 @@ function Feed() {
                                 date={(new Date(feed.data.timestamp).getUTCDate())}
                                 image={feed.data.image}
                                 message={feed.data.message}
+                                feedId={feed.id}
                             />
                         ))}
                     </div>

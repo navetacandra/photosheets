@@ -4,7 +4,7 @@ function FeedDate(props) {
     return (
         <div className="col-md-5 mt-1">
             <span className="text-dark font-italic">
-            {props.year} {props.month} {props.date}
+            {props.date} {props.month} {props.year}
             </span>
         </div>
     )

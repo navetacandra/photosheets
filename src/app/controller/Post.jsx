@@ -1,14 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import firebase from '../config/firebase.config'
 import Post from '../views/Component/Post'
 import { redirect } from '../config/app'
 
+function Blob({ url }) {
+    return (
+        <>
+            {
+                url ? (
+                    <>
+                        <img src={url} alt={"image-from"+url} className="figure-img img-fluid d-block mx-auto"></img>
+                    </>
+                ) : (
+                    <>
+                    </>
+                )
+            }
+        </>
+    )
+}
+
 function Posts() {
-    const user = JSON.parse(localStorage.getItem('user'))
+    const user = JSON.parse(localStorage.getItem('user')) || firebase.auth().currentUser
     const postDb = firebase.database().ref('Posts')
     const [input, setInput] = useState('')
     const [img, setImg] = useState('')
-    let nameFile = Date.parse(Date()) + user.uid
+    const [blob, setBlob] = useState('')
+    let nameFile = Date.parse(Date()) + user.uid;
+
+    useEffect(() => {
+        if(document.querySelector(`#text-input-post`).value.trim() !== input) {
+            setInput(document.querySelector(`#text-input-post`).value.trim())
+        }
+
+        document.querySelector(`#postModal`).addEventListener('hidden.bs.modal', function () {
+            document.querySelector(`#text-input-post`).value = ''
+            document.querySelector('#filePost').value = ''
+            setBlob('')
+        })
+    }, []);
+
     const supportImageType = [
         'image/jpg',
         'image/jpeg',
@@ -36,6 +67,12 @@ function Posts() {
     function setC(val) {
         setInput(val)
     }
+
+    function deleteImage() {
+        setBlob('')
+        setImg('')
+    }
+
     function handleFile(selectorFile) {
 
         let file = selectorFile[0]
@@ -43,9 +80,7 @@ function Posts() {
 
         if (supportImageType.includes(file.type)) {
             document.querySelector('#blob').innerHTML = ""
-            document.querySelector('#blob-image-container').innerHTML = `
-            <img src="${blobURL}" class="figure-img img-fluid"></img>
-            `;
+            setBlob(blobURL)
             fetch(blobURL).then(res => {
                 return res.blob();
             }).then(blob => {
@@ -63,7 +98,7 @@ function Posts() {
     function complete() {
         firebase.storage().ref('Posts/' + nameFile).getDownloadURL()
             .then(url => {
-                let capt = input
+                let capt = document.querySelector(`#text-input-post`).value.trim() !== input ?  document.querySelector(`#text-input-post`).value.trim() : input
                 postDb.push({
                     image: url,
                     message: capt,
@@ -79,29 +114,32 @@ function Posts() {
     }
 
     function postCapt() {
+        let capt = document.querySelector(`#text-input-post`).value.trim() !== input ?  document.querySelector(`#text-input-post`).value.trim() : input
+        console.log(capt !== '')
         if (img !== '') {
             document.querySelector('#errcapt').innerHTML = ''
             let task = firebase.storage().ref('Posts/' + nameFile).put(img)
             task.on('state_changed', null, err, complete)
         } else {
-            if (input !== '') {
+            if (capt !== '') {
                 document.querySelector('#errcapt').innerHTML = ''
                 postDb.push({
-                    message: input,
+                    message: capt,
                     name: user.name,
                     timestamp: firebase.database.ServerValue.TIMESTAMP,
                     profilePict: user.profilePict,
                     uid: user.uid
                 }).then(() => {
-                    redirect('/')
+                    // redirect('/')
+                    console.log(capt)
                 })
             } else {
-                document.querySelector('#errcapt').innerHTML = 'Caption is required!'
+                document.querySelector('#errcapt').innerHTML = 'Caption or Image is required!'
             }
         }
     }
     return (
-        <Post setCaption={setC} post={postCapt} handleFile={handleFile} />
+        <Post setCaption={setC} post={postCapt} deleteImage={deleteImage} Blob={Blob} blobURL={blob} handleFile={handleFile} />
     )
 }
 

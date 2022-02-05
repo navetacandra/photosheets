@@ -1,8 +1,8 @@
 import React from 'react'
 
-function PostModal({ setCaption, handleFile, post, user, Blob, blobURL, deleteImage }) {
+function EditPostModal({ setCaption, handleFile, id, postdata, Blob, post, url, user, deleteImage }) {
     return (
-        <div className="modal fade" id="postModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id={"editPostModal" + id} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-body">
@@ -10,44 +10,44 @@ function PostModal({ setCaption, handleFile, post, user, Blob, blobURL, deleteIm
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <div className="text-center">
-                            <h5>Create Posts</h5>
+                            <h5>Edit Post</h5>
                         </div>
                         <hr />
                         <div className="col-lg-8 d-flex">
                             <img
-                                src={user.profilePict}
+                                src={user.profilePict || postdata.profilePict}
                                 width="50"
                                 height="50"
                                 alt=""
                                 className="rounded-circle shadow-sm mr-3 float-left profile-image" style={{ marginTop: '-.4em' }} />
-                            <h5 className="text-dark align-self-center">{user.name}</h5>
+                            <h5 className="text-dark align-self-center">{user.name || postdata.name}</h5>
                         </div>
-                        <div className="col mt-1 d-block" id="blob-image-container">
-                            {blobURL ? (
+                        <div className="col mt-1" id={"blob-image-container" + id}>
+                            {url ? (
                                 <div className="d-flex justify-content-end">
                                     <button type="button" className="close" onClick={deleteImage}>
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             ) : null}
-                            <Blob url={blobURL} />
+                            <Blob url={url} />
                         </div>
                         <div className="input-group mt-2 pl-3">
-                            <small className="text-danger mb-0" id="errcapt"></small>
-                            <small className="text-danger mb-0" id="blob"></small>
+                            <small className="text-danger mb-0" id={"errcapt" + id}></small>
+                            <small className="text-danger mb-0" id={"blob" + id}></small>
                         </div>
-                        <div className="col mt-1 d-flex">
+                        <div className="col mt-1 d-flex" id="text-input-container">
                             <div className="input-group">
-                                <textarea className="form-control" id="text-input-post" placeholder={`What's on your mind, ${user.name}?`}
+                                <textarea className="form-control" id={"text-input" + id} placeholder={`What's on your mind, ${user.name || postdata.name}?`}
                                     onChange={e => setCaption(e.target.value)} style={{
                                         height: '10em'
-                                    }} />
+                                    }} defaultValue={postdata.message} />
                             </div>
                         </div>
                         <div className="col mt-2">
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item">
-                                    <input accept='image/*' type="file" name="filePost" id="filePost"
+                                    <input type="file" accept='image/*' name={"filePost" + id} id={"filePost" + id}
                                         style={{
                                             width: '.1px',
                                             height: '.1px',
@@ -60,7 +60,7 @@ function PostModal({ setCaption, handleFile, post, user, Blob, blobURL, deleteIm
                                         }}
                                         onChange={e => handleFile(e.target.files)}
                                     />
-                                    <label htmlFor="filePost" style={{
+                                    <label htmlFor={"filePost" + id} style={{
                                         fontSize: '1em',
                                         fontWeight: '700',
                                         color: 'black',
@@ -86,11 +86,22 @@ function PostModal({ setCaption, handleFile, post, user, Blob, blobURL, deleteIm
                         <div className="mx-auto mb-3 col-md-10">
                             <div className="input-group-lg">
                                 <div className="container">
-                                    <button type="button" id="post-btn" className="btn w-100 btn-primary" onClick={post}>
-                                        <span className="font-weight-bold">
-                                            Post
-                                        </span>
-                                    </button>
+                                    <div className="row">
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <button type="button" id="post-btn" className="btn w-100 btn-secondary" data-dismiss="modal" aria-label="Close">
+                                                <span className="font-weight-bold">
+                                                    Cancel
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <button type="button" id="post-btn" className="btn w-100 btn-primary" onClick={post}>
+                                                <span className="font-weight-bold">
+                                                    Edit
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -101,4 +112,4 @@ function PostModal({ setCaption, handleFile, post, user, Blob, blobURL, deleteIm
     )
 }
 
-export default PostModal
+export default EditPostModal

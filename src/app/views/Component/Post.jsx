@@ -1,7 +1,7 @@
 import React from 'react'
 import PostModal from './PostModal'
 
-function Post({ setCaption, post, handleFile }) {
+function Post({ setCaption, post, handleFile, Blob, blobURL, deleteImage }) {
     const user = JSON.parse(localStorage.getItem('user'))
     return (
         <div className="container">
@@ -32,6 +32,9 @@ function Post({ setCaption, post, handleFile }) {
                     handleFile={handleFile}
                     post={post}
                     user={user}
+                    Blob={Blob}
+                    blobURL={blobURL}
+                    deleteImage={deleteImage}
                 />
             </div>
         </div>
