@@ -14,11 +14,8 @@ const cacheData = [
     '/browserconfig.xml',
     // Bootstrap Assets
     /*-----------------------------------------------------------------------------------------------------*/
-    // Normal Bootstrap
-    '/bootstrap/css/bootstrap.css', '/bootstrap/css/bootstrap.css.map',
-    /*-----------------------------------------------------------------------------------------------------*/
-    // Bootstrap Javascript
-    '/bootstrap/js/bootstrap.js', '/bootstrap/js/bootstrap.js.map',
+    '/bootstrap/css/',
+    '/bootstrap/js/',
     /*-----------------------------------------------------------------------------------------------------*/
     // React Assets
     '/static/js/bundle.js',

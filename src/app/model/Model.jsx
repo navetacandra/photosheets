@@ -49,17 +49,22 @@ function RegisterUser(email, password, name) {
 function LoginUser(email, password) {
     firebase.database().ref('users').on('value', res => {
         let d = Object.values(res.val()).filter(f => f.email === email)[0]
-        if (!d.isVerify) {
-            document.getElementById('err-log').innerHTML = "User is not activated!"
+        if (!d) {
+            document.getElementById('err-log').innerHTML = "User is not registered!"
             document.querySelector('#log-button').innerHTML = 'LOGIN'
             document.querySelector('#log-button').removeAttribute('disabled')
         } else {
-            firebase.auth()
+            if (!d.isVerify) {
+                document.getElementById('err-log').innerHTML = "User is not activated!"
+                document.querySelector('#log-button').innerHTML = 'LOGIN'
+                document.querySelector('#log-button').removeAttribute('disabled')
+            } else {
+                firebase.auth()
                 .signInWithEmailAndPassword(email, password)
                 .then(res => {
                     document.querySelector('#log-button').innerHTML = 'LOGIN'
                     firebase.database().ref('users/' + res.user.uid)
-                        .on("value", response => {
+                        .once("value", response => {
                             let data = response.val()
                             let user = {
                                 email: data.email,
@@ -89,6 +94,7 @@ function LoginUser(email, password) {
                         document.getElementById('err-log').innerHTML = "You must online to login!"
                     }
                 })
+            }
         }
     })
 }

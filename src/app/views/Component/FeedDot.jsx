@@ -24,7 +24,7 @@ function FeedDot(props) {
                     </>
                 )
             }
-            <div className="col-lg-4 feed-info">
+            <div className="col-4 feed-info">
                 <div className="dot3-feed">
                     <div className="dropdown">
                         <svg type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-three-dots-vertical" viewBox="0 0 16 16">

@@ -31,8 +31,6 @@ export default function DeletePost({ id }) {
             }).catch(alert('Error when delete post!'))
     }
     return (
-        <div>
-            <DeletePostModal id={id} postdata={postdata} Delete={Delete} />
-        </div>
+        <DeletePostModal id={id} postdata={postdata} Delete={Delete} />
     );
 }

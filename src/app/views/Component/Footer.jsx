@@ -39,7 +39,7 @@ export default function Footer(props) {
                                 </ul>
                                 <ul className='list-group col-md'>
                                     <li className='list-group-item'><a href="https://github.com/navetacandra/"><img height='40' src={GithubIcon} alt="Github Icon" /> @navetacandra</a></li>
-                                    <li className='list-group-item'><a href="https://navetacandra.eu.org/"><img height='40' src={WebIcon} alt="Web Icon" /> navetacandra.eu.org</a></li>
+                                    <li className='list-group-item'><a href="https://www.navetacand.my.id/"><img height='40' src={WebIcon} alt="Web Icon" /> www.navetacand.my.id</a></li>
                                 </ul>
                             </div>
                         </div>

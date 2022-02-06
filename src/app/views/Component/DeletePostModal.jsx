@@ -29,7 +29,7 @@ export default function DeletePostModal({ Delete, id, postdata = {} }) {
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title" id="exampleModalLabel">
-                            Are You Sure Delete Want Delete This Post?
+                            Are You Sure Want Delete This Post?
                         </h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -90,14 +90,14 @@ export default function DeletePostModal({ Delete, id, postdata = {} }) {
                                 <div className="input-group-lg">
                                     <div className="container">
                                         <div className="row">
-                                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-3 mt-1">
                                                 <button type="button" id="post-btn" className="btn w-100 btn-secondary" data-dismiss="modal" aria-label="Close">
                                                     <span className="font-weight-bold">
                                                         Cancel
                                                     </span>
                                                 </button>
                                             </div>
-                                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-3 mt-1">
                                                 <button type="button" id="post-btn" className="btn w-100 btn-danger" onClick={Delete}>
                                                     <span className="font-weight-bold">
                                                         Delete

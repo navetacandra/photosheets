@@ -8,9 +8,21 @@ export default function Beranda() {
     return (
         <div className="bg bg-light" style={{ width: '100%', height: '100vh', overflowX: 'hidden' }}>
             <BerandaPage />
-            <Posts />
-            <Feed />
-            <Footer mt='80vh' />
+            {
+                window.isMobile ? (
+                    <div>
+                        <Posts />
+                        <Feed />
+                        <Footer mt='80vh' />
+                    </div>
+                ) : (
+                    <div style={{marginTop: '4em'}}>
+                        <Posts />
+                        <Feed />
+                        <Footer mt='80vh' />
+                    </div>
+                )
+            }
         </div>
     )
 }

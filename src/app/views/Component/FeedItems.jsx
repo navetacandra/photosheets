@@ -43,17 +43,17 @@ function FeedItems(props) {
                     props.message ? (
                         <div className="col-lg d-block mt-2">
                             <NewlineText text={props.message} />
-                            <div className="col-lg-12 mb-1 mt-1">
+                            <div className="col-12 mb-1 mt-1">
                                 <figure className="figure d-block mx-auto">
-                                    <img src={props.image} alt={"post-image"+props.feedId} className="figure-img default-post d-block mx-auto" />
+                                    <img src={props.image} alt={"post-image" + props.feedId} className="figure-img default-post d-block mx-auto" />
                                 </figure>
                             </div>
                         </div>
                     ) : (
                         <div className="col-lg d-block">
-                            <div className="col-lg-12 my-1">
+                            <div className="col-12 my-1">
                                 <figure className="figure d-block mx-auto">
-                                    <img src={props.image} alt={"post-image"+props.feedId} className="figure-img img-fluid default-post d-block mx-auto" alt="" />
+                                    <img src={props.image} alt={"post-image" + props.feedId} className="figure-img img-fluid default-post d-block mx-auto" alt="" />
                                 </figure>
                             </div>
                         </div>
