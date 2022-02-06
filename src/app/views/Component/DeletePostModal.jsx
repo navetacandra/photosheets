@@ -31,9 +31,9 @@ export default function DeletePostModal({ Delete, id, postdata = {} }) {
                         <h5 className="modal-title" id="exampleModalLabel">
                             Are You Sure Want Delete This Post?
                         </h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <div className="d-flex justify-content-end">
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
                     </div>
                     <div className="modal-body">
 

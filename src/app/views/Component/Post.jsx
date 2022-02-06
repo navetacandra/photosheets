@@ -17,11 +17,11 @@ function Post({ setCaption, post, handleFile, Blob, blobURL, deleteImage }) {
                                 alt=""
                                 className="rounded-circle profile-image shadow-sm mr-3 float-left" 
                                 style={{ marginTop: '-.4em' }} />
-                                <h5 className="text-dark align-self-center">{user.name}</h5>
+                                <h5 className="text-dark ms-2 align-self-center">{user.name}</h5>
                             </div>
                             <div className="col mt-3 d-flex">
                                 <div className="input-group">
-                                    <input type="text" name="caption" id="caption" className="form-control" defaultValue={`What's on your mind, ${user.name}?`} data-toggle="modal" data-target="#postModal" readOnly />
+                                    <input type="text" name="caption" id="caption" className="form-control" defaultValue={`What's on your mind, ${user.name}?`} data-bs-toggle="modal" data-bs-target="#postModal" readOnly />
                                 </div>
                             </div>
                         </div>

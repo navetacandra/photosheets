@@ -35,7 +35,7 @@ const Login = () => {
         <div className='bg-light'>
             <LoginForm handleSubmit={login} />
             <Register />
-            <Info />
+            {/* <Info /> */}
         </div>
     )
 }

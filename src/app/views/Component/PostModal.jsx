@@ -6,9 +6,9 @@ function PostModal({ setCaption, handleFile, post, user, Blob, blobURL, deleteIm
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-body">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <div className="d-flex justify-content-end">
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
                         <div className="text-center">
                             <h5>Create Posts</h5>
                         </div>
@@ -20,7 +20,7 @@ function PostModal({ setCaption, handleFile, post, user, Blob, blobURL, deleteIm
                                 height="50"
                                 alt=""
                                 className="rounded-circle shadow-sm mr-3 float-left profile-image" style={{ marginTop: '-.4em' }} />
-                            <h5 className="text-dark align-self-center">{user.name}</h5>
+                            <h5 className="text-dark ms-2 align-self-center">{user.name}</h5>
                         </div>
                         <div className="col mt-1 d-block" id="blob-image-container">
                             {blobURL ? (

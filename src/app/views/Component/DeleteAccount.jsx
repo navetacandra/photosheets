@@ -9,16 +9,16 @@ export default function EditAccount({ Delete, setPass }) {
                     <div className="modal-header">
                         <h5 className="modal-title" id="exampleModalLabel">
                             Delete Account
-                            </h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        </h5>
+                        <div className="d-flex justify-content-end">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
                     </div>
                     <div className="modal-body">
                         <div className="form-group">
                             <label htmlFor="name">Password:</label>
                             <input autoComplete='off' type="password" name="del-pass" id="del-pass"
-                                className="form-control" onChange={e => setPass(e.target.value)} placeholder="Password.."/>
+                                className="form-control" onChange={e => setPass(e.target.value)} placeholder="Password.." />
                         </div>
                         <div className="form-group">
                             <span className="small text-danger" id="err-del-pass"></span>

@@ -10,7 +10,7 @@ function FeedHeader(props) {
                 alt=""
                 className="rounded-circle mr-2 float-left shadow-sm profile-image"
             />
-            <h5 className="text-dark align-self-center">
+            <h5 className="text-dark ms-2 align-self-center">
                 {props.name}
             </h5>
         </div>

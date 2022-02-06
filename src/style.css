@@ -15,6 +15,10 @@
     src: url(./assets/Disko.ttf);
 }
 
+.root {
+    overflow-x: hidden;
+}
+
 .blog-title {
     font-family: disko;
     font-size: 4em;
@@ -27,18 +31,10 @@
     font-size: 1.1em;
 }
 
-#root {
-    overflow-x: hidden;
-}
 
 .profile-image {
-    max-width: 50;
-    max-height: 50;
-    width: 50;
-    height: 50;
     object-fit: cover;
     overflow: hidden;
-    border-radius: 50%;
     background-color: rgba(255, 255, 255, 0);
     background-size: cover;
     background-position: center;

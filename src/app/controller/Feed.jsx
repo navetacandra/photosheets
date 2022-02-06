@@ -19,28 +19,30 @@ function Feed() {
         })
     }, [])
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-5">
-                    <div>
-                        {feeds.map(feed => (
-                            <FeedItems
-                                key={feed.id}
-                                profilePict={feed.data.profilePict}
-                                name={feed.data.name}
-                                uid={feed.data.uid}
-                                year={(new Date(feed.data.timestamp).getUTCFullYear())}
-                                month={(new Date(feed.data.timestamp).getUTCMonth() + 1)}
-                                date={(new Date(feed.data.timestamp).getUTCDate())}
-                                image={feed.data.image}
-                                message={feed.data.message}
-                                feedId={feed.id}
-                            />
-                        ))}
+        <>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-5">
+                        <div>
+                            {feeds.map(feed => (
+                                <FeedItems
+                                    key={feed.id}
+                                    profilePict={feed.data.profilePict}
+                                    name={feed.data.name}
+                                    uid={feed.data.uid}
+                                    year={(new Date(feed.data.timestamp).getUTCFullYear())}
+                                    month={(new Date(feed.data.timestamp).getUTCMonth() + 1)}
+                                    date={(new Date(feed.data.timestamp).getUTCDate())}
+                                    image={feed.data.image}
+                                    message={feed.data.message}
+                                    feedId={feed.id}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -6,7 +6,7 @@ export default function Info() {
         <>
             <div className="container mt-5 pt-5 mb-5 pb-5">
                 <div className="row justify-content-start">
-                    <div className="col-md-10">
+                    <div className="col-8">
                         <h1 className="blog-title d-flex justify-content-start">What is PhotoSheets?</h1>
                         <div className="row d-flex justify-content-start">
                             <div className="col-md-6">
@@ -30,8 +30,8 @@ export default function Info() {
             </div>
             <div className="container mt-5 pt-5 mb-5 pb-5">
                 <div className="row justify-content-start">
-                    <div className="col-md-10">
-                        <h1 className="blog-title d-flex justify-content-start">Congratulation!!</h1>
+                    <div className="col-md-8">
+                        <h1 className="blog-title d-flex col-6 justify-content-start">Congratulation!!</h1>
                         <div className="row d-flex justify-content-start">
                             <div className="col-md-6">
                                 <span className="text-dark blog-content">Once you have registered your account and logged into PhotoSheets, congratulations!! now you can upload your status on PhotoSheets.</span>

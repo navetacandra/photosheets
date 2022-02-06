@@ -6,7 +6,7 @@ export default function ProfileView({ profilePict, name, email, uid }) {
     return (
         <div className="bg bg-light" style={{ width: '100vw', height: '100vh', overflowX: 'hidden' }}>
             <LoggedInNav />
-            <div className="container">
+            <div className="container" style={{ marginTop: '4em' }}>
                 <div className="row justify-content-center">
                     <div className="col-lg-6">
                         <div className="card my-3 p-0">
@@ -33,16 +33,16 @@ export default function ProfileView({ profilePict, name, email, uid }) {
                                     <li className="list-group-item">
                                         <div className="row">
                                             <div className="col-lg-6 mb-3">
-                                                <button className="btn btn-success w-100"
-                                                    data-toggle="modal"
-                                                    data-target="#EditAccountModal">
+                                                <button className="btn btn-warning w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#EditAccountModal">
                                                     Edit Profile
                                                 </button>
                                             </div>
                                             <div className="col-lg-6">
                                                 <button className="btn btn-danger w-100"
-                                                    data-toggle="modal"
-                                                    data-target="#DeleteAccountModal">
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#DeleteAccountModal">
                                                     Delete Account
                                                 </button>
                                             </div>
