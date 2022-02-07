@@ -88,7 +88,7 @@ function EditPostModal({ setCaption, handleFile, id, postdata, Blob, post, url, 
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-3 mt-1">
-                                            <button type="button" id="post-btn" className="btn w-100 btn-secondary" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" id="post-btn" className="btn w-100 btn-secondary" data-bs-dismiss="modal" aria-label="Close">
                                                 <span className="font-weight-bold">
                                                     Cancel
                                                 </span>

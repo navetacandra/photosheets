@@ -11,7 +11,7 @@ export default function EditAccount({ Delete, setPass }) {
                             Delete Account
                         </h5>
                         <div className="d-flex justify-content-end">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                     </div>
                     <div className="modal-body">

@@ -19,9 +19,7 @@ function FeedDot(props) {
                         <DeletePost id={feed_id} />
                     </>
                 ) : (
-                    <>
-                        <EditPosts user={user} id={feed_id} />
-                    </>
+                    null
                 )
             }
             <div className="col-4 feed-info">
